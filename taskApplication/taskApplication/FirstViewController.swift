@@ -32,7 +32,7 @@ class FirstViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         cell.textLabel?.text = taskMgr.tasks[indexPath.row].name
         cell.detailTextLabel?.text = taskMgr.tasks[indexPath.row].desc
-        
+        print(taskMgr.tasks)
         return cell
     }
     

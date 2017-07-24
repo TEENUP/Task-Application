@@ -87,7 +87,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
-                                    <action selector="btnAddTaskWithSender:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="3oe-mf-fqP"/>
+                                    <action selector="btnAddTask:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="gn6-aw-3xf"/>
                                 </connections>
                             </button>
                         </subviews>
