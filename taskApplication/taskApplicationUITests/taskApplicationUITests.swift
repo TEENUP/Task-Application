@@ -1,6 +1,6 @@
 //
-//  Task_ApplicationUITests.swift
-//  Task-ApplicationUITests
+//  taskApplicationUITests.swift
+//  taskApplicationUITests
 //
 //  Created by Puneet on 24/07/17.
 //  Copyright © 2017 PuneetGupta. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class Task_ApplicationUITests: XCTestCase {
+class taskApplicationUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()
