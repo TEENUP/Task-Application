@@ -12,7 +12,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate{
 
     @IBOutlet weak var txtTask: UITextField!
     @IBOutlet weak var txtDesc: UITextField!
-    
+    var taskMgr: taskManager = taskManager()
    
     
     @IBAction func btnAddTask(_ sender: UIButton) {

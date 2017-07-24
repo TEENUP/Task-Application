@@ -9,13 +9,47 @@
 import UIKit
 
 class FirstViewController: UIViewController,UITableViewDelegate, UITableViewDataSource{
+    var taskMgr: taskManager = taskManager()
+    
+    struct task {
+        var name = "Name"
+        var desc = "Description"
+    }
+    
+    class taskManager: NSObject {
+        
+        var tasks = [task]()
+        
+        func addTask(name: String, desc: String){
+            tasks.append(task(name: name, desc: desc))
+        }
+    }
 
+    
     @IBOutlet weak var tblTasks: UITableView!
+    
+    @IBOutlet weak var txtTask: UITextField!
+    @IBOutlet weak var txtDesc: UITextField!
+    
+    @IBAction func btnAddTask(_ sender: UIButton) {
+        if(txtTask.text == ""){
+            // Task Title is blank, do not add a record
+        }
+        else{
+            //add record
+            taskMgr.addTask(name: txtTask.text!, desc: txtDesc.text!)
+            //dismiss keyboard and reset fields
+            self.view.endEditing(true)
+            txtTask.text = nil
+            txtDesc.text = nil
+            tblTasks.reloadData()
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        tblTasks.reloadData()
+        taskMgr.addTask(name: "rfrfrfr" , desc: "frfrfr")
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,7 +66,9 @@ class FirstViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         cell.textLabel?.text = taskMgr.tasks[indexPath.row].name
         cell.detailTextLabel?.text = taskMgr.tasks[indexPath.row].desc
-        print(taskMgr.tasks)
+        print("name::", taskMgr.tasks[indexPath.row].name)
+        print("description::", taskMgr.tasks[indexPath.row].desc)
+        
         return cell
     }
     
@@ -43,6 +79,16 @@ class FirstViewController: UIViewController,UITableViewDelegate, UITableViewData
             tblTasks.reloadData()
         }
     }
+    
+    func touchesBegan(touches: NSSet, withEvent event: UIEvent){
+        
+        self.view.endEditing(true)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
 
 
 }
